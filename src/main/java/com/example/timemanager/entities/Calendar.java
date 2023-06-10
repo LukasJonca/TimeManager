@@ -1,5 +1,6 @@
 package com.example.timemanager.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -13,6 +14,17 @@ public class Calendar {
         this.tasks = new ArrayList<>();
     }
 
+    public Calendar(List<Day> days, List<Task> tasks) {
+        this.days = days;
+        this.tasks = tasks;
+    }
+    public List<Day> getDays() {
+        return days;
+    }
+
+    public void setDays(List<Day> days) {
+        this.days = days;
+    }
     // Methods to add days and tasks
     public void addDay(Day day) {
         this.days.add(day);
@@ -63,5 +75,7 @@ public class Calendar {
         }
         return true;
     }
+
+
 }
 

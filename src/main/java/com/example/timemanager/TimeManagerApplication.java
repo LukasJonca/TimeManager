@@ -1,4 +1,5 @@
 package com.example.timemanager;
+import com.example.timemanager.entities.Calendar;
 import com.example.timemanager.entities.Day;
 import com.example.timemanager.entities.Task;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +12,6 @@ import java.util.List;
 
 @SpringBootApplication
 public class TimeManagerApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(TimeManagerApplication.class, args);
 
@@ -27,15 +27,13 @@ public class TimeManagerApplication {
         tasks.add(new Task(6, LocalDate.of(2023, Month.JUNE, 11)));
         tasks.add(new Task(3, LocalDate.of(2023, Month.JUNE, 12)));
 
-        // Print out the data
-        System.out.println("Days:");
-        for (Day day : days) {
+        Calendar calendar = new Calendar(days, tasks);
+
+        // Print out the updated days
+        System.out.println("Days after assigning tasks:");
+        for (Day day : calendar.getDays()) {
             System.out.println("Date: " + day.getDate() + ", Busy hours: " + day.getBusyHours() + ", Total hours: " + day.getTotalHours() + ", Type: " + day.getType());
         }
-
-        System.out.println("Tasks:");
-        for (Task task : tasks) {
-            System.out.println("Total hours: " + task.getTotalHours() + ", Deadline: " + task.getDeadline());
-        }
     }
+
 }
