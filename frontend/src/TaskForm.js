@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function TaskForm({ tasks, setTasks }) {
   const [name, setName] = useState('');
-  const [duration, setDuration] = useState('');
+  const [totalHours, setTotalHours] = useState('');
   const [dueDate, setDueDate] = useState('');
   
 
@@ -11,17 +11,17 @@ function TaskForm({ tasks, setTasks }) {
     
     const task = {
       name,
-      duration: Number(duration),
+      totalHours: Number(totalHours),
       dueDate,
     };
 
     setTasks([...tasks, task]);
 
     // Here you can call your API to add a new task
-    console.log(task);
+    //console.log(task);
 
     setName('');
-    setDuration('');
+    setTotalHours('');
     setDueDate('');
   };
 
@@ -34,7 +34,7 @@ function TaskForm({ tasks, setTasks }) {
 
       <label>
         Duration (in hours):
-        <input type="number" value={duration} onChange={(e) => setDuration(e.target.value)} />
+        <input type="number" value={totalHours} onChange={(e) => setTotalHours(e.target.value)} />
       </label>
 
       <label>

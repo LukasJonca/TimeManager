@@ -27,20 +27,18 @@ public class TimeManagerController {
         for(Task task : request.getTasks()) {
             for(Day day : calendar.getDays()) {
                 if(day.getAvailableHours() > 0) {
-                    // Assign as many hours from the task to the day as possible
                     double taskHours = Math.min(day.getAvailableHours(), task.getTotalHours());
                     calendar.assignTaskHours(task, day);
+                    System.out.println("Task " + task.getId() + " assigned " + taskHours + " hours on " + day.getDate());
 
-                    // If the task is not fully scheduled, set isAllTasksScheduled to false
-                    if(task.getTotalHours() > 0) {
-                        isAllTasksScheduled = false;
-                    }
-
-                    // Break if the task is fully scheduled
                     if(task.getTotalHours() == 0) {
                         break;
                     }
                 }
+            }
+            // If the task is not fully scheduled, set isAllTasksScheduled to false
+            if(task.getTotalHours() > 0) {
+                isAllTasksScheduled = false;
             }
         }
 

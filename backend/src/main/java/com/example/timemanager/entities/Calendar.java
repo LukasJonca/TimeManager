@@ -38,8 +38,8 @@ public class Calendar {
             day.addBusyHours(task.getTotalHours());
             task.setTotalHours(0);
         } else {
-            day.addBusyHours(day.getAvailableHours());
             task.setTotalHours(task.getTotalHours() - day.getAvailableHours());
+            day.addBusyHours(day.getAvailableHours());
         }
     }
 
