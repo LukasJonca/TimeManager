@@ -2,7 +2,8 @@
 Time manager consist of a frontend and backend built using Java Spring Boot and React.
 
 ## Demo
-https://youtu.be/3xHxKqgTnB8
+[![Watch the video]]([https://youtu.be/vt5fpE0bzSY](https://youtu.be/3xHxKqgTnB8))
+
 
 ## Backend
 The backend of the Time Manager application is built using Spring Boot. The backend receives HTTP POST requests from the frontend, with the a JSON object containing tasks and days.
