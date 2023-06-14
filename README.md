@@ -19,3 +19,6 @@ All tasks not scheduled:
 ## Frontend
 
 The UI consists of forms for adding tasks and days displaying added tasks and days followed by a button to send the current tasks and days to the backend. Once a response is recieved from the backend the schedule will be displayed with an additional prompt to indicate whether all tasks have been scheduled or not.
+
+![image](https://github.com/LukasJonca/TimeManager/assets/78755884/5cecce5c-8af0-4b1c-86f0-ce54ffa03a3e)
+
