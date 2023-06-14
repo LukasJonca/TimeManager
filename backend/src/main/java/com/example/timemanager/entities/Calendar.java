@@ -24,7 +24,7 @@ public class Calendar {
     public void setDays(List<Day> days) {
         this.days = days;
     }
-    // Methods to add days and tasks
+
     public void addDay(Day day) {
         this.days.add(day);
     }
@@ -43,20 +43,15 @@ public class Calendar {
         }
     }
 
-    // Method to assign tasks to days
     public void assignTasks() {
-        // Sort tasks by deadline
         tasks.sort(Comparator.comparing(Task::getDeadline));
 
         for (Task task : tasks) {
             for (Day day : days) {
                 if (day.getDate().isBefore(task.getDeadline()) || day.getDate().isEqual(task.getDeadline())) {
                     if (day.getAvailableHours() >= task.getTotalHours()) {
-                        // Assign the task to the day and reduce the available hours
-
                         break;
                     } else {
-                        // If the task can't be completed in one day, divide it between multiple days
                         task.setTotalHours(task.getTotalHours() - day.getAvailableHours());
                         day.addBusyHours(day.getAvailableHours() - day.getBusyHours());
                     }
@@ -65,7 +60,6 @@ public class Calendar {
         }
     }
 
-    // Method to check if all tasks can be completed within their deadlines
     public boolean canCompleteAllTasks() {
         for (Task task : tasks) {
             if (task.getTotalHours() > 0) {
@@ -74,7 +68,6 @@ public class Calendar {
         }
         return true;
     }
-
 
 }
 
